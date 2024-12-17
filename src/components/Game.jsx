@@ -27,7 +27,7 @@ function Game() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Columnar Cipher Encryption</h1>
+      <h1>Cipher Encryption</h1>
       <label>Plaintext: </label>
       <input
         type="text"
