@@ -1,0 +1,36 @@
+* {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+.grid > .items {
+    background-color: lightgray;
+    border: 5px solid black;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+}
+
+.columns {
+    height: fit-content;
+    padding: none;
+    text-align: center;
+    font-size: x-large;
+    padding-bottom: 10px;
+}
+
+.mainContainer {
+    display: flex;
+}
+
+.grid, .mainContent {
+    flex: 1;
+}
