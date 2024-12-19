@@ -1,0 +1,15 @@
+* {
+    font-family: mainText;
+    letter-spacing: 5px;
+}
+
+body {
+    background: url(../images/Cipher\ Game\ Background.svg) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: mainText;
+    src: url(../images/earthrealm.ttf);
+}

@@ -1,0 +1,32 @@
+h1 {
+    color: white;
+    font-size: 75px;
+}
+
+.btn {
+    background-color: rgba(0, 0, 0, 0.10);
+    width: 20%;
+    border: 2.5px solid #58C200;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.btn a {
+    color: white;
+    text-decoration: none;
+    transition: -webkit-text-stroke 1s ease-in-out;
+}
+
+.btn:hover {
+    box-shadow: inset 0px 0px 25px 10px rgba(87, 194, 0, 0.5), 0px 0px 25px 10px rgba(87, 194, 0, 0.5);
+}
+
+.btn:hover a {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
+}

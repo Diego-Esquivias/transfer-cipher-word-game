@@ -3,6 +3,8 @@ import Rules from './Rules';
 import Leaderboard from '../components/Leaderboard';
 import Game from '../components/Game';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './background.css'
+import './StartMenu.css'
 
 const StartMenu = () => {
   return (
@@ -21,7 +23,7 @@ const StartMenu = () => {
 // Main Menu Component (only displays links)
 const MainMenu = () => {
   return (
-    <div>
+    <div className='menu'>
       <h1>Neon Decrypt</h1>
       <div className="btn"><a href="/game">Begin</a></div>
       <div className="btn"><a href="/rules">Rules</a></div>
