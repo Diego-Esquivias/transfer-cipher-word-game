@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
-import './Game.css';
+import "./Game.css";
 
 function Game() {
   const initialScore = 2000;
   const initialTime = { minutes: 1, seconds: 59 };
   const levels = [
-    { cipherText: 'ae-hkewy-', answer: 'hawkeye', key: 213 },
-    { cipherText: 'ieontdnn-', answer: 'nintendo', key: 213 }
-    // Add more levels here
+    { cipherText: "ae-hkewy-", answer: "hawkeye", key: 213 },
+    { cipherText: "ieontdnn-", answer: "nintendo", key: 213 },
+    { cipherText: "elpmaxe-", answer: "example", key: 213 },
+    { cipherText: "edosipe-", answer: "episode", key: 213 },
   ];
 
   const [currentLevel, setCurrentLevel] = useState(0);
-  const [guess, setGuess] = useState('');
+  const [guess, setGuess] = useState("");
   const [time, setTime] = useState(initialTime);
   const [deduction, setDeduction] = useState(0);
   const [score, setScore] = useState(initialScore);
+  const [isUsernamePrompt, setIsUsernamePrompt] = useState(false);
+  const [username, setUsername] = useState("");
+  const [finalScore, setFinalScore] = useState(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -46,10 +50,23 @@ function Game() {
         setCurrentLevel((prevLevel) => prevLevel + 1);
         setTime(initialTime);
       } else {
-        alert(`Congratulations! You completed all levels. Final Score: ${score}`);
+        setFinalScore(score - deduction);
+        setIsUsernamePrompt(true); // Prompt for username after final level
       }
     } else {
       alert("Incorrect! Try again.");
+    }
+    setGuess("");
+  };
+
+  const handleUsernameSubmit = (e) => {
+    e.preventDefault();
+    if (/^[a-zA-Z]{2}\d{4}$/.test(username)) {
+      alert(`Username accepted! Final Score: ${finalScore}`);
+      // This is where you would send the username and score to the database
+      console.log({ username, score: finalScore });
+    } else {
+      alert("Username must be 2 letters followed by 4 numbers (e.g., de6283).");
     }
   };
 
@@ -58,6 +75,24 @@ function Game() {
   };
 
   const { cipherText, key } = levels[currentLevel];
+
+  if (isUsernamePrompt) {
+    return (
+      <div className="usernamePrompt">
+        <h1>Congratulations! You've completed all levels.</h1>
+        <h2>Final Score: {finalScore}</h2>
+        <form onSubmit={handleUsernameSubmit}>
+          <input
+            type="text"
+            placeholder="Enter a username (e.g., de6283)"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button type="submit">Submit Username</button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -88,18 +123,16 @@ function Game() {
           </div>
 
           <form className="guessBox" onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              placeholder="Enter your guess" 
-              value={guess} 
-              onChange={(e) => setGuess(e.target.value)} 
+            <input
+              type="text"
+              placeholder="Enter your guess"
+              value={guess}
+              onChange={(e) => setGuess(e.target.value)}
             />
             <button type="submit">Submit</button>
           </form>
         </div>
       </div>
-
-      {/* Add level system and tracking */}
     </>
   );
 }
