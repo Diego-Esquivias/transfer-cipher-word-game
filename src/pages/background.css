@@ -1,13 +1,36 @@
 * {
     font-family: mainText;
     letter-spacing: 5px;
+    box-sizing: border-box;
 }
 
+/* Default background for larger screens */
 body {
-    background: url('../images/Cipher\ Game\ Background.svg') no-repeat center center;
-    background-size: cover;
+    background-image: url('../images/largeDesktop.svg');
     height: 100vh;
-}
+  }
+  
+  @media (max-width: 1920px) {
+    body {
+      background-image: url('../images/desktop.svg');
+      height: 100vh;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    body {
+      background-image: url('../images/tablet.svg');
+      height: 100vh;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      background-image: url('../images/mobile.svg');
+      height: 100vh;
+    }
+  }
+  
 
 @font-face {
     font-family: mainText;

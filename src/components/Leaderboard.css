@@ -1,9 +1,216 @@
-.leaderboard {
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 80%;
-    margin: auto;
+/* ----------------------------- */
+/* Leaderboard Container Styles */
+/* ----------------------------- */
+
+/* Title Section */
+.leaderTitle {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.leaderboard h2 {
+.leaderboard {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 2.5px solid #58C200;
+    box-shadow: inset 0px 0px 25px 10px rgba(87, 194, 0, 0.5);
+}
+
+/* ----------------------------- */
+/* Titles Section */
+/* ----------------------------- */
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid #ffffff;
+}
+
+.titles h1 {
+    margin: 0;
+    flex: 2;
+    font-size: 32px;
+    text-align: left;
+}
+
+.titles h1:last-child {
+    text-align: right;
+}
+
+/* ----------------------------- */
+/* Leaderboard Rows */
+/* ----------------------------- */
+
+.leaderboard-rows {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ----------------------------- */
+/* Rank Section */
+/* ----------------------------- */
+
+.userRank {
+    margin: 0;
+    flex: 1;
+}
+
+.userRank h2 {
+    margin-left: 20px;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* Rank Colors */
+.rank-1 {
+    border: 2.5px #FFFF00 solid;
+    box-shadow: inset 0px 0px 25px 5px rgba(255, 255, 0, 0.5);
+}
+
+.rank-2 {
+    border: 2.5px #9D9D9D solid;
+    box-shadow: inset 0px 0px 25px 5px rgba(157, 157, 157, 0.5);
+}
+
+.rank-3 {
+    border: 2.5px #D28800 solid;
+    box-shadow: inset 0px 0px 25px 5px rgba(210, 137, 0, 0.5);
+}
+
+.default-rank {
+    border: 2.5px white solid;
+    box-shadow: inset 0px 0px 25px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------- */
+/* User Info Section */
+/* ----------------------------- */
+
+.userInfo {
+    display: flex;
+    justify-content: flex-start;
+    flex: 3;
+    padding: 5px 20px;
+    text-align: left;
+    border: 2.5px white solid;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 25px 10px rgba(255, 255, 255, 0.5);
+    height: fit-content;
+}
+
+.userInfo div {
+    margin-left: 15px;
+    flex: 1;
+    font-size: 14px;
+    -webkit-text-stroke: 0.5px #FFFF00;
+}
+
+/* Username and Score Alignment */
+.userName {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.userScore {
+    text-align: right;
+}
+
+.goBackButton {
+    background-color: #58C200;
     color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .goBackButton:hover {
+    background-color: #4b9e00;
+  }
+  
+
+/* ----------------------------- */
+/* Media Queries for Smaller Screens */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+    .leaderboard {
+        width: 90%; /* Shrink leaderboard container */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .titles h1 {
+        font-size: 24px; /* Smaller font size for titles */
+    }
+
+    .leaderboard-row {
+        padding: 8px; /* Smaller padding */
+    }
+
+    .userRank h2 {
+        padding: 12px 16px; /* Smaller padding for rank */
+        font-size: 20px; /* Smaller font size for rank */
+    }
+
+    .userInfo {
+        padding: 5px 10px; /* Reduced padding for user info */
+        box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .userInfo div {
+        margin-left: 0;
+    }
+    
+    .userName, .userScore {
+        font-size: 12px; /* Smaller font size */
+        -webkit-text-stroke-width: 0.25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leaderboard {
+        width: 100%; /* Full width for very small screens */
+        padding: 10px; /* Reduce padding further */
+    }
+
+    .titles h1 {
+        font-size: 18px; /* Even smaller font size */
+    }
+
+    .leaderboard-row {
+        padding: 6px; /* Smaller padding for very small screens */
+    }
+
+    .userRank h2 {
+        padding: 10px 14px; /* Smaller padding */
+        font-size: 20px; /* Even smaller rank size */
+    }
+
+    .userInfo {
+        padding: 4px 8px; /* Even smaller padding */
+        box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .userName, .userScore {
+        font-size: 15px; /* Smaller font size for very small screens */
+        -webkit-text-stroke-width: 0.25px;
+    }
 }
