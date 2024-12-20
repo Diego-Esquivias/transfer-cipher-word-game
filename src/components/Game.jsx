@@ -5,7 +5,7 @@ import "./Game.css";
 function Game() {
   const navigate = useNavigate(); // For navigation
   const initialScore = 2000;
-  const initialTime = { minutes: 1, seconds: 59 };
+  const initialTime = { minutes: 2, seconds: 59 };
 
   // Predefined levels with scrambled words and answers
   const levels = [

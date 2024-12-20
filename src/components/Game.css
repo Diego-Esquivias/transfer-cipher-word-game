@@ -1,7 +1,7 @@
 * {
     text-align: center;
     -webkit-text-fill-color: black; /* Fill color for text */
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.75); /* Stroke thickness */
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255); /* Stroke thickness */
     text-shadow: 
         0 0 2px rgba(0, 0, 0, 0.8), /* Adds a slight shadow to thicken the text */
         0 0 4px rgba(0, 0, 0, 0.8); /* Adds a deeper shadow effect */
