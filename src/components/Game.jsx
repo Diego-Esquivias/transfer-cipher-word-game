@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import React Router
 import "./Game.css";
 
 function Game() {
+  const navigate = useNavigate(); // For navigation
   const initialScore = 2000;
   const initialTime = { minutes: 1, seconds: 59 };
   const levels = [
@@ -59,12 +61,23 @@ function Game() {
     setGuess("");
   };
 
-  const handleUsernameSubmit = (e) => {
+  const handleUsernameSubmit = async (e) => {
     e.preventDefault();
     if (/^[a-zA-Z]{2}\d{4}$/.test(username)) {
-      alert(`Username accepted! Final Score: ${finalScore}`);
-      // This is where you would send the username and score to the database
-      console.log({ username, score: finalScore });
+      try {
+        const response = await fetch("http://localhost:5000/scores", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, score: finalScore }),
+        });
+        if (response.ok) {
+          navigate("/leaderboard"); // Redirect to leaderboard page
+        } else {
+          alert("Failed to submit score. Please try again.");
+        }
+      } catch (err) {
+        alert("Error submitting score: " + err.message);
+      }
     } else {
       alert("Username must be 2 letters followed by 4 numbers (e.g., de6283).");
     }

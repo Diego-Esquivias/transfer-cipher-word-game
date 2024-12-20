@@ -4,12 +4,25 @@
 }
 
 body {
-    background: url(../images/Cipher\ Game\ Background.svg) no-repeat center center;
+    background: url('../images/Cipher\ Game\ Background.svg') no-repeat center center;
     background-size: cover;
     height: 100vh;
 }
 
 @font-face {
     font-family: mainText;
-    src: url(../images/earthrealm.ttf);
+    src: url('../images/earthrealm.ttf');
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body {
+        background-size: contain; /* This can be 'contain' on smaller screens to prevent clipping */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: auto; /* Use 'auto' for mobile for more control */
+    }
 }

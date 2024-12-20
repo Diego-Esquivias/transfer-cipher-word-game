@@ -25,9 +25,9 @@ const MainMenu = () => {
   return (
     <div className='menu'>
       <h1>Neon Decrypt</h1>
-      <div className="btn"><a href="/game">Begin</a></div>
-      <div className="btn"><a href="/rules">Rules</a></div>
-      <div className="btn"><a href="/leaderboard">Leaderboard</a></div>
+      <a href="/game"><div className="btn">Begin</div></a>
+      <a href="/rules"><div className="btn">Rules</div></a>
+      <a href="/leaderboard"><div className="btn">Leaderboard</div></a>
     </div>
   );
 };
